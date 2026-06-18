@@ -1,0 +1,58 @@
+```gitignore
+# dependencies
+node_modules/
+
+# environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# uploaded files
+uploads/
+
+# build folders
+dist/
+build/
+
+# coverage
+coverage/
+
+# cache
+.cache/
+
+# operating system files
+.DS_Store
+Thumbs.db
+
+# vscode
+.vscode/
+
+# idea
+.idea/
+
+# temporary files
+*.tmp
+*.temp
+
+# runtime
+pids/
+*.pid
+
+# mysql dump
+*.sql
+
+# zip files
+*.zip
+*.rar
+
+# generated files
+*.bak
+```
