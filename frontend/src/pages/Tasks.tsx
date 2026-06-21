@@ -54,7 +54,7 @@ export default function Tasks() {
       );
       return { previousTasks };
     },
-    onError: (err, newTodo, context) => {
+    onError: (_err, _newTodo, context) => {
       queryClient.setQueryData(['tasks'], context?.previousTasks);
       toast({ title: 'Failed to update task', variant: 'destructive' });
     },

@@ -66,11 +66,11 @@ export default function Habits() {
       );
       return { previousHabits };
     },
-    onError: (err, newTodo, context) => {
+    onError: (_err, _newTodo, context) => {
       queryClient.setQueryData(['habits'], context?.previousHabits);
       toast({ title: 'Failed to update habit', variant: 'destructive' });
     },
-    onSettled: (data, error, id) => {
+    onSettled: (_data, _error, id) => {
       queryClient.invalidateQueries({ queryKey: ['habits'] });
       queryClient.invalidateQueries({ queryKey: ['statistics'] });
       queryClient.invalidateQueries({ queryKey: ['habitDetails', id] });
