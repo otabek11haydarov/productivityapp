@@ -27,7 +27,11 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173', // Vite default port
+    origin: [
+        process.env.CLIENT_URL,
+        'http://localhost:5173',
+        'https://productivityapp-m7fe.vercel.app'
+    ].filter(Boolean),
     credentials: true,
 }));
 app.use(express.json());
