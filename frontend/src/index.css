@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #F8FAFC;
+    --foreground: #111827;
+    
+    --card: #FFFFFF;
+    --card-foreground: #111827;
+    
+    --popover: #FFFFFF;
+    --popover-foreground: #111827;
+    
+    --primary: #2563EB;
+    --primary-foreground: #FFFFFF;
+    
+    --secondary: #EEF2F7;
+    --secondary-foreground: #4B5563;
+    
+    --muted: #EEF2F7;
+    --muted-foreground: #9CA3AF;
+    
+    --accent: #10B981;
+    --accent-foreground: #FFFFFF;
+    
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+
+    --border: #e2e8f0;
+    --input: #e2e8f0;
+    --ring: #2563EB;
+    
+    --radius: 12px;
+    
+    --sidebar: #F1F5F9;
+  }
+
+  .dark {
+    --background: #0D1117;
+    --foreground: #FFFFFF;
+    
+    --card: #1F2937;
+    --card-foreground: #FFFFFF;
+    
+    --popover: #1F2937;
+    --popover-foreground: #FFFFFF;
+    
+    --primary: #00FF88;
+    --primary-foreground: #000000;
+    
+    --secondary: #161B22;
+    --secondary-foreground: #B3B3B3;
+    
+    --muted: #161B22;
+    --muted-foreground: #6B7280;
+    
+    --accent: #00E5FF;
+    --accent-foreground: #000000;
+    
+    --destructive: #7f1d1d;
+    --destructive-foreground: #ffffff;
+    
+    --border: #374151;
+    --input: #374151;
+    --ring: #00FF88;
+    
+    --sidebar: #111827;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* Base custom utilities for neon effect */
+@layer utilities {
+  .neon-shadow {
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5), 0 0 20px rgba(0, 255, 136, 0.3);
+  }
+  .neon-text {
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.8);
+  }
+}
