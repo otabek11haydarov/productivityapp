@@ -26,13 +26,21 @@ for (const envVar of requiredEmailVars) {
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://productivityapp-m7fe.vercel.app',
+  process.env.CLIENT_URL
+].filter(Boolean);
+
 app.use(cors({
-    origin: [
-        process.env.CLIENT_URL,
-        'http://localhost:5173',
-        'https://productivityapp-m7fe.vercel.app'
-    ].filter(Boolean),
-    credentials: true,
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
 app.use(express.json());
 app.use(cookieParser());
