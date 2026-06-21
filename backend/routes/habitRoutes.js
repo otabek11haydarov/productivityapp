@@ -3,7 +3,9 @@ import {
     getHabits,
     createHabit,
     updateHabit,
-    deleteHabit
+    deleteHabit,
+    toggleHabit,
+    getHabitDetails
 } from '../controllers/habitController.js';
 import { protect } from '../middlewares/authMiddleware.js';
 
@@ -16,5 +18,8 @@ router.route('/')
 router.route('/:id')
     .put(protect, updateHabit)
     .delete(protect, deleteHabit);
+
+router.post('/:id/toggle', protect, toggleHabit);
+router.get('/:id/details', protect, getHabitDetails);
 
 export default router;
