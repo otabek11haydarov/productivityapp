@@ -24,6 +24,7 @@ for (const envVar of requiredEmailVars) {
 }
 
 const app = express();
+app.set('trust proxy', 1); // Allow Express to set secure cookies when behind Render's reverse proxy
 
 // Middleware
 const allowedOrigins = [

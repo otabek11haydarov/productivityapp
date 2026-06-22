@@ -12,8 +12,12 @@ api.interceptors.response.use(
     (response) => response,
     (error) => {
         if (error.response && error.response.status === 401) {
-            // Unauthorized, maybe clear user state here or redirect
-            // window.location.href = '/login';
+            console.warn('[Axios Interceptor] 401 Unauthorized received. Clearing session state.');
+            localStorage.removeItem('isAuthenticated');
+            // If we are not already on the login page, redirect
+            if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
+                window.location.href = '/login';
+            }
         }
         return Promise.reject(error);
     }
