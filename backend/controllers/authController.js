@@ -79,6 +79,7 @@ export const logoutUser = asyncHandler(async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        path: '/',
         expires: new Date(0),
     });
     res.status(200).json({ message: 'Logged out successfully' });
